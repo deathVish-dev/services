@@ -3,21 +3,20 @@ import {  HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cart } from './cart';
 import { Customer } from './customer';
+import { CardDetails } from './cardDetails';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class CardDetailService {
 
   str:String;
   constructor(public http:HttpClient) { }
 
   
-  public updateCart(cart:Cart):Observable<Object>
+  public addCard(card:CardDetails):Observable<Object>
   {
-    console.log(cart);
-    this.str="http://localhost:7070/TripKitRESTAPI/user/updatecart";
-    return this.http.post(`${this.str}`,cart);
+    return this.http.post("http://localhost:7070/TripKitRESTAPI/user/addcard",card);
   }
 
   public storeInCart(cart:Cart):Observable<Object>
@@ -34,11 +33,6 @@ export class CartService {
   public allCartItems(uid:number):Observable<any>
   {
     return this.http.get("http://localhost:7070/TripKitRESTAPI/user/getAllCart/"+uid);
-  }
-
-  public deleteCartItems(cid:number):Observable<any>
-  {
-    return this.http.get("http://localhost:7070/TripKitRESTAPI/user/deletecart/"+cid);
   }
 
 

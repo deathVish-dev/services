@@ -35,4 +35,11 @@ export class ProductService {
     return this.http.get("http://localhost:7070/TripKitRESTAPI/admin/deleteProduct/"+id);
   }
 
+
+  public getAllProductsnotininven(vid:number):Observable<any>
+  {
+    return this.http.get("http://localhost:7070/TripKitRESTAPI/vendor/getproductsnotininven/"+vid);
+  }
+  
+
 }

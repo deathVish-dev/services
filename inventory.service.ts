@@ -10,14 +10,21 @@ export class InventoryService {
 
     constructor(public http:HttpClient) { }
 
-    public getInventoryList(id:number):Observable<any>
+    public getAllInventoryList():Observable<any>
     {
-      return this.http.get("http://localhost:7070/TripKitRESTAPI/vendor/invenlist"+id);
+      return this.http.get("http://localhost:7070/TripKitRESTAPI/vendor/allinvenlist");
+    }
+
+
+
+    public getVendorInventoryList(id:number):Observable<any>
+    {
+      return this.http.get("http://localhost:7070/TripKitRESTAPI/vendor/invenlist/"+id);
     }
   
     public getInventory(id:number):Observable<any>
     {
-      return this.http.get("http://localhost:7070/TripKitRESTAPI/vendor/getinven"+id);
+      return this.http.get("http://localhost:7070/TripKitRESTAPI/vendor/getinven/"+id);
     }
   
     public updateInventory(inven:Inventory):Observable<any>

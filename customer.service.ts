@@ -22,7 +22,7 @@ export class CustomerService {
 
   public getMails():Observable<any>
   {
-    return this.http.get("http://localhost:7070/TripKitRESTAPI/user/getusermails/");
+    return this.http.get("http://localhost:7070/TripKitRESTAPI/user/getusermails");
   }
 
 }
